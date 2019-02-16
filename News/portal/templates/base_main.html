@@ -1,0 +1,233 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>News</title>
+
+    <!-- favicon -->
+    <link href="{% static "portal/img/favicon.png" %}" rel=icon>
+
+    <!-- web-fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,500' rel='stylesheet' type='text/css'>
+
+    <!-- Bootstrap -->
+    <link href="{% static "portal/css/bootstrap.min.css" %}" rel="stylesheet">
+
+    <!-- font-awesome -->
+    <link href="{% static "portal/fonts/font-awesome/font-awesome.min.css" %}" rel="stylesheet">
+    <!-- Mobile Menu Style -->
+    <link href="{% static "portal/css/mobile-menu.css" %}" rel="stylesheet">
+
+    <!-- Owl carousel -->
+    <link href="{% static "portal/css/owl.carousel.css" %}" rel="stylesheet">
+    <link href="{% static "portal/css/owl.theme.default.min.css" %}" rel="stylesheet">
+    <!-- Theme Style -->
+    <link href="{% static "portal/css/style.css" %}" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body id="page-top" data-spy="scroll" data-target=".navbar">
+<div id="main-wrapper">
+<!-- Page Preloader -->
+<div id="preloader">
+    <div id="status">
+        <div class="status-mes"></div>
+    </div>
+</div>
+<!-- preloader -->
+
+<div class="uc-mobile-menu-pusher">
+<div class="content-wrapper">
+<section id="header_section_wrapper" class="header_section_wrapper">
+    <div class="container">
+        <div class="header-section">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="left_section">
+                        <div class="social">
+                            <a class="icons-sm fb-ic"><i class="fa fa-facebook"></i></a>
+                            <!--Twitter-->
+                            <a class="icons-sm tw-ic"><i class="fa fa-twitter"></i></a>
+                            <!--Google +-->
+                            <a class="icons-sm inst-ic"><i class="fa fa-instagram"> </i></a>
+                            <!--Linkedin-->
+                            <a class="icons-sm tmb-ic"><i class="fa fa-tumblr"> </i></a>
+                            <!--Pinterest-->
+                            <a class="icons-sm rss-ic"><i class="fa fa-rss"> </i></a>
+                        </div>
+                        <!-- Top Social Section -->
+                    </div>
+                    <!-- Left Header Section -->
+                </div>
+                <div class="col-md-4">
+                    <div class="logo">
+                        <a href="{% url 'home' %}"><img src="{% static "portal/img/logo.png" %}" alt="Tech NewsLogo"></a>
+                    </div>
+                    <!-- Logo Section -->
+                </div>
+                <div class="col-md-4">
+                    <div class="right_section">
+                        <ul class="nav navbar-nav">
+                            <li><a href="#">Entrar</a></li>
+                            <li><a href="#">Registrar-se</a></li>
+                            <li class="dropdown lang">
+                                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Pt<i
+                                        class="fa fa-angle-down"></i></button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                    <li><a href="#">En</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <!-- Language Section -->
+                    </div>
+                    <!-- Right Header Section -->
+                </div>
+            </div>
+        </div>
+        <!-- Header Section -->
+
+        <div class="navigation-section">
+            <nav class="navbar m-menu navbar-default">
+                <div class="container">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                                data-target="#navbar-collapse-1"><span class="sr-only">Toggle navigation</span> <span
+                                class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+                        </button>
+                    </div>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="#navbar-collapse-1">
+                        <ul class="nav navbar-nav main-nav">
+                            <li class="active"><a href="{% url 'home' %}">Geral</a></li>
+                            {% for category in categories %}
+                                <li><a href="{% url 'home_category' category.id %}">{{ category.name }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <!-- .navbar-collapse -->
+                </div>
+                <!-- .container -->
+            </nav>
+            <!-- .nav -->
+        </div>
+        <!-- .navigation-section -->
+    </div>
+    <!-- .container -->
+</section>
+<!-- header_section_wrapper -->
+
+
+{% block body %}
+{% endblock %}
+
+
+<div class="widget m30">
+    <div class="widget_title widget_black">
+        <h2><a>Lista de Tags</a></h2>
+    </div>
+
+    <div class="entity_footer">
+        <div class="entity_tag">
+            {% for tag in tags %}
+            <span class="blank"><a href="{% url 'home_tag' tag.id %}">{{ tag.name }}</a></span>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<!-- Tags -->
+
+</div>
+<!-- Row -->
+
+</div>
+<!-- Container -->
+
+</section>
+<!-- Entity Section Wrapper -->
+
+<section id="footer_section" class="footer_section">
+    <div class="footer_bottom_Section">
+        <div class="container">
+            <div class="row">
+                <div class="footer">
+                    <div class="col-sm-3">
+                        <div class="social">
+                            <a class="icons-sm fb-ic"><i class="fa fa-facebook"></i></a>
+                            <!--Twitter-->
+                            <a class="icons-sm tw-ic"><i class="fa fa-twitter"></i></a>
+                            <!--Google +-->
+                            <a class="icons-sm inst-ic"><i class="fa fa-instagram"> </i></a>
+                            <!--Linkedin-->
+                            <a class="icons-sm tmb-ic"><i class="fa fa-tumblr"> </i></a>
+                            <!--Pinterest-->
+                            <a class="icons-sm rss-ic"><i class="fa fa-rss"> </i></a>
+                        </div>
+                    </div>
+                    <div class="col-sm-5">
+                        <p>&copy; Copyright 2016-Tech News . Design by: <a href="https://uicookies.com" target="_blank">uiCookies</a> </p>
+                    </div>
+                    <div class="col-sm-4">
+                        <p>Developed by: <a href="https://github.com/Renanrmx" target="_blank">Renan R. M. Xavier</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</div>
+<!-- #content-wrapper -->
+
+</div>
+<!-- .offcanvas-pusher -->
+
+<a href="#" class="crunchify-top"><i class="fa fa-angle-up" aria-hidden="true"></i></a>
+
+<div class="uc-mobile-menu uc-mobile-menu-effect">
+    <button type="button" class="close" aria-hidden="true" data-toggle="offcanvas"
+            id="uc-mobile-menu-close-btn">&times;</button>
+    <div>
+        <div>
+            <ul id="menu">
+                <li class="active"><a href="{% url 'home' %}">Geral</a></li>
+                {% for category in categories %}
+                    <li><a href="{% url 'home_category' category.id %}">{{ category.name }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- .uc-mobile-menu -->
+
+</div>
+<!-- #main-wrapper -->
+
+<!-- jquery Core-->
+<script src="{% static "portal/js/jquery-2.1.4.min.js" %}"></script>
+
+<!-- Bootstrap -->
+<script src="{% static "portal/js/bootstrap.min.js" %}"></script>
+
+<!-- Theme Menu -->
+<script src="{% static "portal/js/mobile-menu.js" %}"></script>
+
+<!-- Owl carousel -->
+<script src="{% static "portal/js/owl.carousel.min.js" %}"></script>
+
+<!-- Theme Script -->
+<script src="{% static "portal/js/script.js" %}"></script>
+</body>
+</html>
+
+

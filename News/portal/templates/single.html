@@ -1,0 +1,56 @@
+{% extends 'base_main.html' %}
+{% load static %}
+
+{% block body %}
+
+
+<section id="entity_section" class="entity_section">
+<div class="container">
+<div class="row">
+<div class="col-md-8">
+<div class="entity_wrapper">
+    <div>
+        <h1>{{ article.title }}</h1>
+    </div>
+    <!-- entity_title -->
+
+    <div>
+        <h1>{{ article.description }}</h1>
+    </div>
+    <!-- entity_description -->
+
+    <div class="entity_meta">
+        {% if article.event_datetime %}
+        Ocorrido em: <a>{{ article.event_datetime }}</a><br>
+        {% endif %}
+        Postado em: <a>{{ article.publish_datetime }}</a><br>
+        Atualizado em: <a>{{ article.update_datetime }}</a><br>
+        Por: <a>{{ article.author }}</a>
+    </div>
+    <!-- entity_meta -->
+
+    <div class="entity_content">
+        {{ article.content|safe }}
+    </div>
+    <!-- entity_content -->
+
+    <div class="entity_footer">
+        <div class="entity_tag">
+            {% for art_tag in art_tags %}
+            <span class="blank"><a href="{% url 'home_tag' art_tag.fk_tag.id %}">{{ art_tag.tag }}</a></span>
+            {% endfor %}
+        </div>
+        <!-- entity_tag -->
+    </div>
+    <!-- entity_footer -->
+</div>
+<!-- entity_wrapper -->
+</div>
+<!--Left Section-->
+
+<div class="col-md-4">
+
+
+{% endblock %}
+
+

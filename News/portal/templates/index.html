@@ -1,0 +1,88 @@
+{% extends 'base_main.html' %}
+{% load static %}
+
+{% block body %}
+
+
+<section id="category_section" class="category_section">
+<div class="container">
+<div class="row">
+<div class="col-md-8">
+
+<div class="category_section camera">
+    <div class="article_header">
+        {% if filter_name %}
+        <h2><a>{{ filter_name|upper }}</a></h2>
+        {% endif %}
+    </div>
+    <!-- article_title -->
+
+    {% for article in articles %}
+    <div class="category_article_wrapper">
+        <div class="row">
+            <div class="col-md-5">
+                <div class="top_article_img">
+                    <a href="{% url 'details' article.id %}">
+                        <img class="img-responsive" src="{% get_media_prefix %}{{ article.ilustration }}" alt="feature-top">
+                    </a>
+                </div>
+                <!-- top_article_img -->
+
+            </div>
+            <div class="col-md-7">
+                <span class="tag green"><a href="{% url 'home_category' article.fk_category.id %}">{{ article.category }}</a></span>
+
+                <div class="category_article_title">
+                    <h2><a href="{% url 'details' article.id %}">{{ article.title }}</a></h2>
+                </div>
+                <!-- category_article_title -->
+
+                <div class="article_date"><a>{{ article.publish_datetime }}</a>, por: <a>{{ article.author }}</a></div>
+                <!----article_date------>
+                <!-- category_article_wrapper -->
+
+                <div class="category_article_content">{{ article.description }}</div>
+                <!-- category_article_content -->
+
+            </div>
+            <!-- col-md-7 -->
+        </div>
+        <!-- row -->
+    </div>
+    {% endfor %}
+    <!-- category_article_wrapper -->
+</div>
+<!-- News Section -->
+</div>
+<!-- Left Section -->
+
+<div class="col-md-4">
+
+
+<div class="widget m30">
+    <div class="widget_title widget_black">
+        <h2><a>Filtro de data</a></h2>
+    </div>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        {% for field in filter_form %}
+            <div>
+                {{ field }}<span class="media-heading">{{ field.label }}</span>
+                <span>
+                    {{ field.errors }}
+                </span>
+            </div>
+        {% endfor %}
+
+        <div>
+            <button type="submit">Filtrar</button>
+        </div>
+    </form>
+</div>
+<!-- Date Filter -->
+
+    
+{% endblock %}
+
