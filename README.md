@@ -10,9 +10,9 @@ News With Django is a Django project of a news portal to practice with the new D
     
 * Features
 
-    ```Filters by category, tags and date range```    
-    ```Custom admin with filters, search and so on```
-    ```News content with html editor, images upload and embeds```
+    Filters by category, tags and date range
+    Custom admin with filters, search and so on
+    News content with html editor, images upload and embeds
 
 # Getting Started
 ---
@@ -26,15 +26,15 @@ News With Django is a Django project of a news portal to practice with the new D
 
 * Required modules
     
-    ```pip install -r requirements.txt```
+    pip install -r requirements.txt
 
 * Database
   
-    ```Install the MySQL```
-    ```Configure DATABASES in settings.py```
-    ```python manage.py check```
-    ```python manage.py migrate```
-    ```python manage.py createsuperuser```
+    Install the MySQL
+    Configure DATABASES in settings.py
+    python manage.py check
+    python manage.py migrate
+    python manage.py createsuperuser
 
 * Run the app
 
@@ -62,3 +62,5 @@ In templates folder the file article_default_content.html is used to default str
 This project is under MIT License 
 ![license](https://img.shields.io/github/license/mashape/apistatus.svg)
 
+# Screenshot
+![Alt Text](https://github.com/Renanrmx/NewsWithDjango/blob/master/Home.jpg)
