@@ -26,7 +26,7 @@ News With Django is a Django project of a news portal to practice with the new D
 
 * Required modules
     
-    pip install -r requirements.txt
+    ```pip install -r requirements.txt```
 
 * Database
   
@@ -61,6 +61,9 @@ In templates folder the file article_default_content.html is used to default str
 # License
 This project is under MIT License 
 ![license](https://img.shields.io/github/license/mashape/apistatus.svg)
+
+# Class Diagram
+![Alt Text](https://github.com/Renanrmx/NewsWithDjango/blob/master/ClassDiagram.jpg)
 
 # Screenshot
 ![Alt Text](https://github.com/Renanrmx/NewsWithDjango/blob/master/Home.jpg)
